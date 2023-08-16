@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2> Login Page </h2>
+{% if message %}
+<div class="alert alert-primary" role="alert">
+  {{message}}
+</div>
+{% endif %}
+<form action="login" method="POST">
+  {% csrf_token %}
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+      </div>
+      <button type="submit" class="btn btn-primary mt-4">Login</button>
+  <a href="register" class="btn btn-secondary mt-4">Don't have an account?</button>
+
+    </form>
+{% endblock content %}
